@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow-x: hidden;
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  filter: grayscale(100%)
+}
+
+.bg img.middle {
+  height: 390px;       
+  object-fit: cover; 
+  align-self: center;  
+  filter: brightness(0.8)
+}
+
+.bg img {
+    width: calc(100vw / 3);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+    transition: all 0.8s ease;
+}
+
+.bg img.right {
+  filter: blur(6px);
+  cursor: pointer;
+}
+
+.bg img.right.expand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(0);
+  z-index: 999;
+}
+
+.fourth {
+   position: fixed;
+  inset: 0;
+  background: black;
+  display: none;
+  z-index: 1000;
+}
+.fourth.show {
+display: block;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 100vw;
+  height: 100vh;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+  filter: blur(10px);
+  display: block;
+}
+
+.collage img.reveal {
+  filter: blur(0);
+}
+
+.float-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 500;
+}
+
+.float {
+  position: absolute;
+  width: 120px;
+  pointer-events: auto;
+  cursor: grab;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));
+}
+
+.float:active {
+  cursor: grabbing;
+}
+
+.size-s { width: 160px; }
+.size-m { width: 220px; }
+.size-l { width: 280px; }
+.size-xl { width: 400px; }
+
+.p1 { top: 10%; left: 8%; }
+.p2 { top: 20%; right: 12%; }
+.p3 { bottom: 18%; left: 15%; }
+.p4 { top: 55%; left: 40%; }
+.p5 { bottom: 10%; right: 20%; }
+.p6 { top: 35%; right: 35%; }
+
+.draggable.glow {
+  filter: drop-shadow(0 0 25px rgba(255,255,255,0.9));
+}
