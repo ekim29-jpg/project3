@@ -152,7 +152,7 @@ display: block;
   filter: drop-shadow(0 0 30px 15px deeppink) contrast(120%);
 }
 
-@media screen and (max-width:900px) {
+/* @media screen and (max-width:900px) {
 .bg img {
 
     width: calc(100vw / 3);
@@ -161,7 +161,7 @@ display: block;
   display: block;
     transition: all 0.8s ease;
   }
-}
+} */
 
 
 .size-bed { width: 31.25vw;
