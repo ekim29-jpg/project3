@@ -22,12 +22,19 @@ background-color: black;
   filter: brightness(70%);
 }
 
+
+
 .bg img.layer2 {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.layer2:hover {
+  size: 110%;
+
 }
 
 .bg img {
@@ -141,7 +148,7 @@ display: block;
 .p12 { top: 27%; left: 42%;}
 .p13 { top: 84%; left: 5%;}
 .p14 { top: 46%; left: 76%;}
-.p15 { top: 70%; left: 74%;}
+.p15 { top: 60%; left: 74%;}
 .p16 { top: 16%; left: 32%;}
 .p17 { top: 5%; left: 84%;}
 .p18 { top: 42%; left: 81%;}
