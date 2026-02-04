@@ -70,3 +70,27 @@ if (backBtn) {
     fourthImage.classList.remove("show");
   });
 }
+
+const messageOverlay = document.getElementById("messageOverlay");
+const messageText = document.getElementById("messageText");
+
+collageImages.forEach(img => {
+  img.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (img.classList.contains("reveal")) {
+   
+      messageText.textContent = "see you tomorrow";
+    } else {
+    
+      messageText.textContent = "we are not that close yet...";
+    }
+
+    messageOverlay.classList.add("show");
+  });
+});
+
+
+messageOverlay.addEventListener("click", () => {
+  messageOverlay.classList.remove("show");
+});

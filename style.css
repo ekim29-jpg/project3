@@ -122,6 +122,27 @@ display: block;
   color: hotpink;
 }
 
+.message-overlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.message-overlay.show {
+  display: flex;
+}
+
+.message-text {
+  color: white;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
 .pbed { top: 10%; left: 2%; }
 .pdesk { top: 20%; right: 12%; }
 .pheadphone { bottom: 18%; left: 15%; }
