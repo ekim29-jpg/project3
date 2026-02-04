@@ -99,10 +99,10 @@ display: block;
 
 .back {
   position: fixed;
-  top: 90%;
-  left: 50%;
-  justify-content: center;
-  font-size: 30%;
+  top: 2%;
+  left: 2%;
+  /* justify-content: center; */
+  font-size: 5vw;
   font-family: doto;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.7);
