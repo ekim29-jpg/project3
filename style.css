@@ -5,49 +5,34 @@
 }
 
 html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  background: black;
+background-color: black;
   overflow-x: hidden;
 }
 
+
+
 .bg {
-    width: 100vw;
-    height: 100vh;
-  display: flex;
-  align-items: flex-start;
+    width: 100%;
+    height: 100dvh;
   position: relative;
-  filter: grayscale(100%)
+  filter: brightness(70%);
 }
 
-.bg img.middle {
-  height: 390px;       
-  object-fit: cover; 
-  align-self: center;  
-  filter: brightness(0.8)
+.bg img.layer2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .bg img {
-    width: calc(100vw / 3);
-  height: 100%;
-  object-fit: cover;
   display: block;
     transition: all 0.8s ease;
-}
-
-.bg img.right {
-  filter: blur(6px);
-  cursor: pointer;
-}
-
-.bg img.right.expand {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  filter: blur(0);
-  z-index: 999;
 }
 
 .fourth {
@@ -56,66 +41,146 @@ html, body {
   background: black;
   display: none;
   z-index: 1000;
+  pointer-events: none;
+  
 }
 .fourth.show {
 display: block;
+  display: block;
+  pointer-events: auto;
 }
 
 .collage {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  width: 100vw;
+  position: relative;
+    width: 100vw;
   height: 100vh;
-  gap: 0;
-  margin: 0;
-  padding: 0;
+  background: url("inside.JPG") center / cover no-repeat;
+
 }
 
 .collage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  object-position: center;
+  position: absolute;
+  object-fit: cover;
+
   filter: blur(10px);
-  display: block;
+  transition: filter 1s ease, transform 0.8s ease;
+
+  box-shadow: 0 0 20px white;
+  border-radius: 2px;
 }
+
+
 
 .collage img.reveal {
   filter: blur(0);
 }
 
+.collage img.small { width: 11vw; }
+.collage img.medium { width: 15vw; }
+.collage img.big { width: 18vw; }
+
 .float-layer {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 500;
+  pointer-events: none;
 }
 
 .float {
   position: absolute;
-  width: 120px;
-  pointer-events: auto;
   cursor: grab;
   filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));
+  pointer-events: auto;
 }
 
 .float:active {
   cursor: grabbing;
 }
 
-.size-s { width: 160px; }
-.size-m { width: 220px; }
-.size-l { width: 280px; }
-.size-xl { width: 400px; }
+.back {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  justify-content: center;
+  font-size: 30%;
+  font-family: doto;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  z-index: 2000;
+  user-select: none;
+}
 
-.p1 { top: 10%; left: 8%; }
-.p2 { top: 20%; right: 12%; }
-.p3 { bottom: 18%; left: 15%; }
-.p4 { top: 55%; left: 40%; }
-.p5 { bottom: 10%; right: 20%; }
-.p6 { top: 35%; right: 35%; }
+.back:hover {
+  color: hotpink;
+}
+
+.pbed { top: 10%; left: 2%; }
+.pdesk { top: 20%; right: 12%; }
+.pheadphone { bottom: 18%; left: 15%; }
+.ptshirt { top: 55%; left: 40%; }
+.pguitar { bottom: 10%; right: 20%; }
+.pdog { bottom: 5%; right: 35%; }
+.pflower { top: 10%; right: 50%}
+.pbanana { top: 28%; left: 48%}
+.pshoes { bottom: 26%; left: 30%;}
+.pkuchi { bottom: 40%; right: 12%;}
+.pmocha { top:4%; right: 38%}
+
+.p1 { top: 35%; left: 1%;}
+.p2 { top: 62%; left: 20%;}
+.p3 { top: 7%; left: 50%;}
+.p4 { top: 1%; left: 60%;}
+.p5 { top: 1%; left: 20%;}
+.p6 { top: 80%; left: 52%;}
+.p7 { top: 50%; left: 32%;}
+.p8 { top: 73%; left: 82%;}
+.p9 { top: 38%; left: 77%;}
+.p10 { top: 58%; left: 52%;}
+.p11 { top: 47%; left: 90%;}
+.p12 { top: 27%; left: 42%;}
+.p13 { top: 84%; left: 5%;}
+.p14 { top: 46%; left: 76%;}
+.p15 { top: 88%; left: 74%;}
+.p16 { top: 16%; left: 32%;}
+.p17 { top: 5%; left: 84%;}
+.p18 { top: 42%; left: 81%;}
+.p19 { top: 29%; left: 55%;}
+.p20 { top: 30%; left: 15%;}
 
 .draggable.glow {
-  filter: drop-shadow(0 0 25px rgba(255,255,255,0.9));
+  filter: drop-shadow(0 0 30px 15px deeppink) contrast(120%);
 }
+
+@media screen and (max-width:900px) {
+.bg img {
+
+    width: calc(100vw / 3);
+  max-height: 50vh;
+  object-fit: cover;
+  display: block;
+    transition: all 0.8s ease;
+  }
+}
+
+
+.size-bed { width: 31.25vw;
+rotate: -5deg; }
+.size-desk { width: 27.1vw;;
+rotate: 10deg; }
+.size-headphone { width: 14vw; }
+.size-tshirt { width: 15.6vw; }
+.size-guitar { width: 11.3vw;
+ }
+.size-dog{ width: 14.2vw;
+ }
+.size-flower{ width: 10.4vw;
+rotate: -12deg;
+ }
+.size-banana{ width: 11.8vw;
+rotate: 30deg; }
+.size-shoes{ width: 15vw; }
+.size-kuchi{ width: 7.1vw;
+rotate: 27deg;
+ }
+.size-mocha{ width: 7.6vw; }

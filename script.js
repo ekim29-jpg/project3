@@ -1,13 +1,16 @@
-const rightImage = document.getElementById("rightImage");
+
 const fourthImage = document.getElementById("fourthImage");
 const collageImages = document.querySelectorAll(".collage img");
+const glowBtn = document.getElementById("glow-btn");
 
 
-rightImage.addEventListener("click", () => {
+
+document.querySelector(".bg").addEventListener("click", () => {
   fourthImage.classList.add("show");
 });
 
-// 하루 한 장 reveal
+
+
 if (collageImages.length > 0) {
   const today = new Date().toISOString().split("T")[0];
   const storedDay = localStorage.getItem("revealDay");
@@ -52,7 +55,18 @@ document.querySelectorAll(".draggable").forEach(element => {
   });
 });
 
-document.getElementById("glow-btn").addEventListener("click", () => {
-  toggleClassOnElements(".draggable", "glow");
-  document.body.classList.toggle("glow");
-});
+if (glowBtn) {
+  glowBtn.addEventListener("click", () => {
+    toggleClassOnElements(".draggable", "glow");
+  });
+}
+
+const backBtn = document.querySelector(".back");
+
+
+if (backBtn) {
+  backBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    fourthImage.classList.remove("show");
+  });
+}
